@@ -15,8 +15,8 @@ const PatientLogin = () => {
     const { setUser, setUserType } = useAuth(); // Access setUser and setUserType from AuthContext
     const navigate = useNavigate();
     const [error, setError] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('patricia.normann@presbytarian.org');
+    const [password, setPassword] = useState(3451231);
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
