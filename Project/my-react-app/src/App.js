@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Main from './components/main/main.js';
-import Landing from './pages/Landing.js';
 import { AuthProvider } from './components/session/AuthContext.js';
 import { auth } from './firebase.js'; // Import auth from firebase.js
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import PatientLogin from './pages/PatientLogin.js';
-import PatientSignUp from './pages/psignup.js';
-import DoctorLogin from './pages/DoctorLogin.js';
-import DoctorSignUp from './pages/dsignup.js';
+import { BrowserRouter } from 'react-router-dom';
 function App() {
     const [user, setUser] = useState(null);
 
@@ -25,19 +20,7 @@ function App() {
         <BrowserRouter>
             <AuthProvider>
                 <div className="App overflow-y-scroll no-scrollbar">
-
-                    <Routes>
-                        <Route path='*' element={
-                            user
-                                ? <Main user={user} />
-                                : <Landing />
-                            //: <DoctorSignup/>
-                        } />
-                        <Route path='/patientlogin' element={<PatientLogin />} />
-                        <Route path='/patientsignup' element={<PatientSignUp />} />
-                        <Route path='/doctorlogin' element={<DoctorLogin />} />
-                        <Route path='/doctorsignup' element={<DoctorSignUp />} />
-                    </Routes>
+                <Main user={user} />
 
                 </div>
             </AuthProvider>
